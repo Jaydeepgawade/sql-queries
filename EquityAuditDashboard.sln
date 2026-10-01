@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquityAudit.Api", "api\EquityAudit.Api\EquityAudit.Api.csproj", "{71B7B4D5-30A1-49AC-8EB8-499F2ABC2110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquityAudit.Checks", "tests\EquityAudit.Checks\EquityAudit.Checks.csproj", "{59A02BB7-DA17-4832-9018-3177C4C85111}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71B7B4D5-30A1-49AC-8EB8-499F2ABC2110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B7B4D5-30A1-49AC-8EB8-499F2ABC2110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B7B4D5-30A1-49AC-8EB8-499F2ABC2110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B7B4D5-30A1-49AC-8EB8-499F2ABC2110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59A02BB7-DA17-4832-9018-3177C4C85111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A02BB7-DA17-4832-9018-3177C4C85111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A02BB7-DA17-4832-9018-3177C4C85111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A02BB7-DA17-4832-9018-3177C4C85111}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

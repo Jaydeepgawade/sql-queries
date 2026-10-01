@@ -1,0 +1,19 @@
+name: Dashboard API checks
+on:
+  push:
+    branches: ["feature/equity-dashboard-api"]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build-and-service-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - run: dotnet restore EquityAuditDashboard.sln
+      - run: dotnet build EquityAuditDashboard.sln --no-restore
+      - run: dotnet run --project tests/EquityAudit.Checks --no-build

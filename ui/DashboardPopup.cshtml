@@ -1,0 +1,30 @@
+@* Copy into your existing MVC Razor view; jQuery comes from your layout. *@
+<label for="dashboardQuarter">Quarter key (YYYYMM)</label>
+<input id="dashboardQuarter" maxlength="6" placeholder="202603" />
+<label for="dashboardRm">RM code</label>
+<input id="dashboardRm" maxlength="20" />
+<label for="dashboardPosition">Position</label>
+<input id="dashboardPosition" maxlength="100" />
+<button type="button" id="dashboardLoadButton">Load dashboard</button>
+<p id="dashboardLoading" hidden>Loading…</p>
+<div id="dashboardResults" aria-live="polite"></div>
+
+<dialog id="dashboardMessageDialog" aria-labelledby="dashboardMessageTitle">
+    <h2 id="dashboardMessageTitle">Dashboard</h2>
+    <p id="dashboardMessageText"></p>
+    <form method="dialog"><button>OK</button></form>
+</dialog>
+
+@* Put dashboard-popup.js in wwwroot/js in your MVC project and include it after jQuery. *@
+<script src="~/js/dashboard-popup.js"></script>
+@* Bind from your existing login flow, using a validated API access token:
+    $('#dashboardLoadButton').on('click', function () {
+        const quarter = $('#dashboardQuarter').val().trim();
+        equityDashboard.load({
+            quarterFrom: quarter, quarterTo: quarter,
+            rmCode: $('#dashboardRm').val().trim(),
+            positionName: $('#dashboardPosition').val().trim()
+        }, accessTokenFromYourLoginFlow);
+    });
+    This sample does not create a second login/token issuing system.
+*@

@@ -1,0 +1,33 @@
+@baseUrl = https://localhost:7043
+@token = REPLACE_WITH_ACCESS_TOKEN_FROM_YOUR_AUTH_SERVICE
+
+### All dashboard results for one quarter
+GET {{baseUrl}}/api/equity-dashboard?quarterFrom=202603&quarterTo=202603
+Authorization: Bearer {{token}}
+
+### No-data quarter (choose a valid key absent from your database)
+GET {{baseUrl}}/api/equity-dashboard?quarterFrom=209903&quarterTo=209903
+Authorization: Bearer {{token}}
+
+### Specific RM + quarter + status
+GET {{baseUrl}}/api/equity-dashboard?quarterFrom=202603&quarterTo=202606&rmCode=RM001&status=1
+Authorization: Bearer {{token}}
+
+### Available quarters in current role
+GET {{baseUrl}}/api/equity-dashboard/quarters/available
+Authorization: Bearer {{token}}
+
+### Separate REST endpoint for quarter chart
+GET {{baseUrl}}/api/equity-dashboard/quarters?quarterFrom=202603&quarterTo=202606
+Authorization: Bearer {{token}}
+
+### Separate REST endpoint for RM chart
+GET {{baseUrl}}/api/equity-dashboard/rms?quarterFrom=202603&quarterTo=202606
+Authorization: Bearer {{token}}
+
+### Invalid quarter -> HTTP 400
+GET {{baseUrl}}/api/equity-dashboard?quarterFrom=202613
+Authorization: Bearer {{token}}
+
+### No authentication -> HTTP 401
+GET {{baseUrl}}/api/equity-dashboard
